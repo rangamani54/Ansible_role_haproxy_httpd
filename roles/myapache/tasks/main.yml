@@ -1,0 +1,22 @@
+---
+# tasks file for myapache
+
+  - name: "Installing httpd software"
+    package:
+        name: 
+           - httpd
+           - php 
+
+  - name: "Copying web page"
+    template: 
+        src: "{{ source_file_path }}"
+        dest: "/var/www/html/m.php"
+
+  - name: "Starting web service"
+    service:
+        name: httpd
+        state: started
+
+  
+
+ 

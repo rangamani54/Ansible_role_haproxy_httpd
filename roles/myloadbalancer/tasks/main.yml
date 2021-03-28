@@ -1,0 +1,27 @@
+---
+# tasks file for myloadbalancer
+  - name: "Installing haproxy"
+    package: 
+      name: haproxy
+      state: present
+
+  - name: "Copying haproxy configuration file"
+    template: 
+       src: "/ws8/roles/myloadbalancer/files/haproxy.cfg.j2"
+       dest: "/etc/haproxy/haproxy.cfg"
+    notify: Restarting haproxy
+
+  - name: "Making SElinux permissive"
+    selinux:
+       policy: targeted
+       state: permissive
+
+  - name: "Starting haproxy service"
+    service:
+        name: haproxy
+        state: started
+
+
+
+
+ 

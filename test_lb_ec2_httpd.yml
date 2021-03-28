@@ -1,0 +1,13 @@
+- hosts: localhost
+  roles:
+  - role: myec2instances
+
+- hosts: tag_Name_loadbalancer
+  roles:
+  - role: myloadbalancer
+
+- hosts: tag_Name_webserver
+  roles:
+  - role: myapache
+
+

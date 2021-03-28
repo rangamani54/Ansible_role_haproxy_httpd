@@ -1,0 +1,43 @@
+---
+# tasks file for myec2instances
+  - name: Launching Instances for webserver 
+    ec2:
+                    key_name: "{{ key_name_web }}"
+                    instance_type: "t2.micro"
+                    image: "{{ AMI_ID_web }}"
+                    wait: yes
+                    count_tag: 
+                         Name: "{{ Instance_Name_web }}"
+                    exact_count: "{{ Instance_count_web }}"
+                    instance_tags:
+                        Name: "{{ Instance_Name_web }}"
+                    vpc_subnet_id: "{{ VPC_ID_web }}"
+                    assign_public_ip: yes
+                    region: ap-south-1
+                    group: "{{ sg_name_web }}"
+                    aws_access_key: "{{ access_key }}"
+                    aws_secret_key: "{{ secret_key }}"
+                    
+  - name: Launching instance for load balancer
+    ec2:
+      key_name: "{{ key_name_lb }}"
+      instance_type: "t2.micro"     
+      image:  "{{ AMI_ID_lb }}" 
+      wait: yes
+      count_tag: 
+          Name: "{{ Instance_Name_lb }}"
+      exact_count: "{{ Instance_count_lb }}"
+      instance_tags:
+              Name: "{{ Instance_Name_lb }}"
+      vpc_subnet_id: "{{ VPC_ID_lb }}"
+      assign_public_ip: yes
+      region: "{{ Region_lb }}"
+      group: "{{ sg_name_lb }}"
+      aws_access_key: "{{ access_key }}"
+      aws_secret_key: "{{ secret_key }}"
+
+  - name: "Waiting for Instances to Launch"
+    pause:
+      seconds: 100
+  - name: " Refreshing inventory to load the new instances IPs"
+    meta: "refresh_inventory"  

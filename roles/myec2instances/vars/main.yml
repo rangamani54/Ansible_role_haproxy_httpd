@@ -1,0 +1,20 @@
+---
+# vars file for myec2instances
+
+AMI_ID_web: "ami-052c08d70def0ac62"
+key_name_web: "ansiblekey"
+Instance_Name_web: "webserver"
+Instance_count_web: 2
+VPC_ID_web: "subnet-c40108ac"
+Region_web: "ap-south-1"
+sg_name_web: "webserver"
+
+AMI_ID_lb: "ami-052c08d70def0ac62"
+key_name_lb: "ansiblekey"
+VPC_ID_lb: "subnet-c40108ac"
+Region_lb: "ap-south-1"
+Instance_Name_lb: "loadbalancer"
+Instance_count_lb: 1
+sg_name_lb: "loadbalancer_sg"
+access_key: "AKIAUQ2NLNBDSTZ6MBN4"
+secret_key: "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"

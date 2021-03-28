@@ -1,0 +1,3 @@
+---
+# vars file for myapache
+source_file_path: "/ws8/roles/myapache/files/m.php"
