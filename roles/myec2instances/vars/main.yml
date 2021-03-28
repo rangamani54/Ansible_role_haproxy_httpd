@@ -16,5 +16,5 @@ Region_lb: "ap-south-1"
 Instance_Name_lb: "loadbalancer"
 Instance_count_lb: 1
 sg_name_lb: "loadbalancer_sg"
-access_key: "AKIAUQ2NLNBDSTZ6MBN4"
-secret_key: "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"
+access_key: "xxxxxxxx"
+secret_key: "xxxxxxxxxxxxxxxxxxxxxxx"
